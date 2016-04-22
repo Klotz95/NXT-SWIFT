@@ -6,7 +6,7 @@
 <p>The class diagram is structured like this: </p>
 <img src='Diagrams/classDiagram.bmp' />
 <h2>Return Values Of Functions</h2>
-<p>As you can see the funtions "GetOutputState" and "GetInputValues" are returning a dictionary. These are optional properties which will be nil if something went wrong during the connection. The following table shows the indexes and the related attribute type of these dictionaries. </p>
+<p>As you can see the funtions "GetOutputState" and "GetInputValues" are returning a dictionary. These are optional properties which will be nil if something went wrong during the connection. The following table shows the indexes and the related attribute types of these dictionaries. </p>
 <h3>Dictionary of GetOutputState</h3>
   <table>
   <tr>
@@ -98,7 +98,7 @@
   </tr>
 </table>
 <h2>Error Handling</h2>
- <p>To handle the errors almost every function has as a return value a NSError Datatype. This return value is a optional property and will be nil if everything went correctly. </p>
+ <p>To handle the errors almost every function has as a return value a NSError Datatype. This return value is an optional property and will be nil if everything went correctly. </p>
 <h2>More Information</h2>
 <p>For further information please visit the official LEGO Mindstorm NXT documentations which can be found via the following links: </p>
 <p><b>NXT Bluetooth Developer Kit:</b> <a href='http://cache.lego.com/r/www/r/mindstorms/-/media/franchises/mindstorms%202014/downloads/firmware%20and%20software/nxt%20software/bdk_download1.zip?l.r2=-1144978407'>http://cache.lego.com/r/www/r/mindstorms/-/media/franchises/mindstorms%202014/downloads/firmware%20and%20software/nxt%20software/bdk_download1.zip?l.r2=-1144978407</a><br><br>
