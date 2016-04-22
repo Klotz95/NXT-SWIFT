@@ -19,6 +19,18 @@ class ANLEngineControl {
     
     public func SetOutputState(outputPort: Byte, powerSetPoint: Byte, mode: Byte, regulationMode: UByte, turnRatio: SByte, runState: UByte, tachoLimit: ULong) -> NSError {
         
+        // create byte array
+        var byteArr: [Byte]
+        
+        // add information to byteArr
+        byteArr = 0x00 + 0x04 + outputPort + powerSetPoint + mode + regulationMode + turnRatio + runState + tachoLimit
+        
+        // send byte array
+        var returnPackage = brick.sendOtherCommand(byteArr);
+        
+        if (0 = 0) {
+            return nil
+        }
     }
     
     public func GetOutputState(outputPort: Byte) -> NSDictionary {
