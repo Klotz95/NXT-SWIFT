@@ -28,8 +28,6 @@ class ANLSensorControl {
         // send byte array
         var (error, returnPagacke) = brick.sendOtherCommand(byteArr);
         
-        if (error == nil) {
-            return nil
-        }
+        return returnPagacke
     }
 }
