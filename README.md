@@ -2,7 +2,7 @@
 <h2>About</h2>
 <p>NXT-SWIFT has the goal to create an API in SWIFT for LEGO Mindstorm NXT. It will be possible to regulate the engine and read out all important sensor values.<br> At first we will only focus on the bluetooth connection. The serial connection will be developed later on. </p>
 <h2>Diagrams</h2>
-<h3>class diagram</h3>
+<h3>Class Diagram</h3>
 <p>The class diagram is structured like this: </p>
 <img src='Diagrams/classDiagram.bmp' />
 <h2>Return Values Of Functions</h2>
