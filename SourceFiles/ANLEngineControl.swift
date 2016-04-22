@@ -33,6 +33,17 @@ class ANLEngineControl {
     
     public func GetOutputState(outputPort: Byte) -> NSDictionary {
         
+        // create byte array
+        var byteArr: [Byte]
+        
+        // add information to byteArr
+        byteArr = 0x00 + 0x06 + outputPort
+        
+        // send byte array
+        var (error, returnPackage) = brick.sendOtherCommand(byteArr);
+        
+        return returnPackage
+        
     }
     
     public func StopAllEngines() {
