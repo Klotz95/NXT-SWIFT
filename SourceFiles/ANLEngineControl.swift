@@ -23,7 +23,15 @@ class ANLEngineControl {
         var byteArr: [Byte]
         
         // add information to byteArr
-        byteArr = 0x00 + 0x04 + outputPort + powerSetPoint + mode + regulationMode + turnRatio + runState + tachoLimit
+        byteArr[0] = 0x00
+        byteArr[1] = 0x04
+        byteArr[2] = outputPort
+        byteArr[3] = powerSetPoint
+        byteArr[4] = mode
+        byteArr[5] = regulationMode
+        byteArr[6] = turnRatio
+        byteArr[7] = runState
+        byteArr[8] = tachoLimit
         
         // send byte array
         var (error, returnPackage) = brick.sendOtherCommand(byteArr);
@@ -37,7 +45,9 @@ class ANLEngineControl {
         var byteArr: [Byte]
         
         // add information to byteArr
-        byteArr = 0x00 + 0x06 + outputPort
+        byteArr[0] = 0x00
+        byteArr[1] = 0x06
+        byteArr[2] = outputPort
         
         // send byte array
         var (error, returnPackage) = brick.sendOtherCommand(byteArr);

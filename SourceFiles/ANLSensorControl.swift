@@ -23,7 +23,9 @@ class ANLSensorControl {
         var byteArr: [Byte]
         
         // add information to byteArr
-        byteArr = 0x00 + 0x07 + inputPort
+        byteArr[0] = 0x00
+        byteArr[1] = 0x07
+        byteArr[2] = inputPort
         
         // send byte array
         var (error, returnPagacke) = brick.sendOtherCommand(byteArr);
