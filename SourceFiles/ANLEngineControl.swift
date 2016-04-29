@@ -39,7 +39,7 @@ class ANLEngineControl {
         return error
     }
     
-    public func GetOutputState(outputPort: Byte) -> NSDictionary {
+    public func GetOutputState(outputPort: Byte) -> [String:Any] {
         
         // create byte array
         var byteArr: [Byte]
@@ -52,7 +52,23 @@ class ANLEngineControl {
         // send byte array
         var (error, returnPackage) = brick.sendOtherCommand(byteArr);
         
-        return returnPackage
+        if error != nil {
+            return nil
+        }
+        
+        var dictionary: [String:Any]
+        dictionary["OutputPort"] = returnPackage[0]
+        dictionary["PowerSetPoint"] = returnPackage[1]
+        dictionary["Mode"] = returnPackage[2]
+        dictionary["RegulationMode"] = returnPackage[3]
+        dictionary["TurnRatio"] = returnPackage[4]
+        dictionary["RunState"] = returnPackage[5]
+        dictionary["TachoLimit"] = returnPackage[6]
+        dictionary["TachoCount"] = returnPackage[7]
+        dictionary["BlockTachoCount"] = returnPackage[8]
+        dictionary["RotationCount"] = returnPackage[9]
+        
+        return dictionary
         
     }
     

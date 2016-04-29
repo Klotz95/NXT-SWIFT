@@ -30,6 +30,21 @@ class ANLSensorControl {
         // send byte array
         var (error, returnPagacke) = brick.sendOtherCommand(byteArr);
         
-        return returnPagacke
+        if error != nil {
+            return nil
+        }
+        
+        var dictionary: [String:Any]
+        dictionary["InputPort"] = returnPackage[0]
+        dictionary["Valid"] = returnPackage[1]
+        dictionary["Calibrated"] = returnPackage[2]
+        dictionary["SensorType"] = returnPackage[3]
+        dictionary["SensorMode"] = returnPackage[4]
+        dictionary["RawADValue"] = returnPackage[5]
+        dictionary["NormalizedADValue"] = returnPackage[6]
+        dictionary["ScaledValue"] = returnPackage[7]
+        dictionary["CalibratedValue"] = returnPackage[8]
+        
+        return dictionary
     }
 }
