@@ -17,7 +17,7 @@ class ANLSensorControl {
         brick = currentBrick
     }
     
-    public func GetInputValues(inputPort: Byte) -> NSDictionary {
+    public func GetInputValues(inputPort: Byte) -> [String:Any] {
         
         // create byte array
         var byteArr: [Byte]
@@ -28,22 +28,22 @@ class ANLSensorControl {
         byteArr[2] = inputPort
         
         // send byte array
-        var (error, returnPagacke) = brick.sendOtherCommand(byteArr);
+        var (error, returnPackage) = brick.sendOtherCommand(byteArr);
         
         if error != nil {
-            return nil
+            return error
         }
         
         var dictionary: [String:Any]
-        dictionary["InputPort"] = returnPackage[0]
-        dictionary["Valid"] = returnPackage[1]
-        dictionary["Calibrated"] = returnPackage[2]
-        dictionary["SensorType"] = returnPackage[3]
-        dictionary["SensorMode"] = returnPackage[4]
-        dictionary["RawADValue"] = returnPackage[5]
-        dictionary["NormalizedADValue"] = returnPackage[6]
-        dictionary["ScaledValue"] = returnPackage[7]
-        dictionary["CalibratedValue"] = returnPackage[8]
+        dictionary["InputPort"] = returnPackage[0] // Byte
+        dictionary["Valid"] = returnPackage[1] // Boolean
+        dictionary["Calibrated"] = returnPackage[2] // Boolean
+        dictionary["SensorType"] = returnPackage[3] // Byte
+        dictionary["SensorMode"] = returnPackage[4] // Byte
+        dictionary["RawADValue"] = returnPackage[5,6] // String
+        dictionary["NormalizedADValue"] = returnPackage[7,8] // String
+        dictionary["ScaledValue"] = returnPackage[9,10] // String
+        dictionary["CalibratedValue"] = returnPackage[11,12] // String
         
         return dictionary
     }

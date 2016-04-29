@@ -53,20 +53,20 @@ class ANLEngineControl {
         var (error, returnPackage) = brick.sendOtherCommand(byteArr);
         
         if error != nil {
-            return nil
+            return error
         }
         
         var dictionary: [String:Any]
-        dictionary["OutputPort"] = returnPackage[0]
-        dictionary["PowerSetPoint"] = returnPackage[1]
-        dictionary["Mode"] = returnPackage[2]
-        dictionary["RegulationMode"] = returnPackage[3]
-        dictionary["TurnRatio"] = returnPackage[4]
-        dictionary["RunState"] = returnPackage[5]
-        dictionary["TachoLimit"] = returnPackage[6]
-        dictionary["TachoCount"] = returnPackage[7]
-        dictionary["BlockTachoCount"] = returnPackage[8]
-        dictionary["RotationCount"] = returnPackage[9]
+        dictionary["OutputPort"] = returnPackage[0] // Byte
+        dictionary["PowerSetPoint"] = returnPackage[1] // Byte
+        dictionary["Mode"] = returnPackage[2] // Byte
+        dictionary["RegulationMode"] = returnPackage[3] // UByte
+        dictionary["TurnRatio"] = returnPackage[4] // SByte
+        dictionary["RunState"] = returnPackage[5] // UByte
+        dictionary["TachoLimit"] = returnPackage[6,7,8,9] // ULong
+        dictionary["TachoCount"] = returnPackage[10,11,12,13] // SLong
+        dictionary["BlockTachoCount"] = returnPackage[14,15,16,17] // SLong
+        dictionary["RotationCount"] = returnPackage[18,19,20,21] // SLong
         
         return dictionary
         
