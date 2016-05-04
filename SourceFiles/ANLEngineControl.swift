@@ -2,7 +2,7 @@
 //  ANLEngineControl.swift
 //  
 //
-//  Created by Anton Wieprecht on 22.04.16.
+//  Created by Nico Wieprecht on 22.04.16.
 //
 //
 
